@@ -1,0 +1,101 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.contenedor{
+    border-style: solid;
+    width: 90%;
+    max-width: 1280px;
+    min-height: 1024px;
+    margin:20px auto;
+    display: grid;
+    grid-gap: 15px;
+    grid-template-columns: repeat(3,auto);
+    grid-template-rows: repeat(4,auto);
+    grid-template-areas: "header header header"
+                        "contenido contenido sidebar"
+                        "witge1 witge2 sidebar"
+                        "footer footer footer";
+}
+
+.contenedor > div,
+.contenedor .header,
+.contenedor .contenido,
+.contenedor .sidebar,
+.contenedor .footer{
+    background-color: lightseagreen;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.contenedor .header{
+    background-color: lightslategrey;
+   /* grid-column-start: 1; 
+    grid-column-end: -1;*/
+    grid-area: header;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+}
+
+.contenedor .contenido{
+    /*grid-column: span 2;*/
+    grid-area: contenido;
+}
+
+.contenedor .sidebar{
+    min-height: 100px;
+    grid-column: 3/4;
+    background-color: aquamarine;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   /* grid-row: span 2;*/
+   grid-area:sidebar;
+   font-size: 25px;
+}
+
+.contenedor .wigte-1, 
+.contenedor .wigte-2{
+    background-color: teal;
+    color:white;
+    min-height: 100px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenedor .wigte-1{
+    grid-area: witge1;
+}
+
+.contenedor .wigte-2{
+    grid-area: witge2;
+}
+
+.contenedor .footer{
+    background-color: darkslategrey;
+    color:white;
+   /* grid-column: span 3;*/
+   grid-area: footer;
+   display:flex;
+   align-items: center;
+   justify-content: center;
+   font-size: 25px;
+}
+
+@media screen and (max-width:768px){
+
+    .contenedor{
+        grid-template-areas: "header header header header"
+        "contenido contenido contenido contenido"
+        "sidebar sidebar sidebar sidebar"
+        "witge1 witge1 witge2 witge2"
+        "footer footer footer footer";
+    }
+
+}
